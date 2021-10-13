@@ -2,6 +2,11 @@
 let
   rules = import ../../rules.nix;
 
+  acmeEmail = "team@hackclub.com";
+  dnsProvider = "dnsimple";
+  dnsCredentialsFile = "/var/secrets/acme_dns_credentials.env";
+  domains = [ "hackclub.com" "hackclub.io" "hackedu.us" ];
+
   # from https://stackoverflow.com/a/54505212
   recursiveMerge = with lib;
     attrList:
@@ -63,7 +68,23 @@ in {
 
         locations."/".return = "302 https://hackclub.com";
       };
-    }
-    rulesConvertedToNginxConfig
-  ];
-}
+    };
+
+    users.users.nginx.extraGroups = [ "acme" ];
+
+    # generate wildcard certificates for all the domains
+    security.acme = {
+      acceptTerms = true;
+      email = acmeEmail;
+      certs = builtins.listToAttrs (map (domain: {
+        name = domain;
+        value = {
+          dnsProvider = dnsProvider;
+          credentialsFile = dnsCredentialsFile;
+          extraDomainNames = [ "*.${domain}" ]; # get wildcard certs
+        };
+      }) domains);
+    };
+  }
+  rulesConfig
+]
