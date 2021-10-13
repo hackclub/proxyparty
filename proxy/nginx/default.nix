@@ -49,9 +49,21 @@ let
 in {
   networking.firewall.allowedTCPPorts = [ 80 ];
 
-  services.nginx = {
-    enable = builtins.trace (builtins.toJSON rulesConvertedToNginxConfig) true;
+  services.nginx = recursiveMerge [
+    {
+      enable =
+        builtins.trace (builtins.toJSON rulesConvertedToNginxConfig) true;
 
-    resolver = { addresses = [ "1.1.1.1" ]; };
-  } // rulesConvertedToNginxConfig;
+      # specify DNS server to use to resolve domain names
+      resolver = { addresses = [ "1.1.1.1" ]; };
+
+      # default virtual host to use if nothing else is found
+      virtualHosts.default = {
+        default = true;
+
+        locations."/".return = "302 https://hackclub.com";
+      };
+    }
+    rulesConvertedToNginxConfig
+  ];
 }
