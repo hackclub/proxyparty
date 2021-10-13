@@ -10,10 +10,14 @@
     proxy = "api.bulckcah.com";
     dest = "https://api.hackclub.com";
   }
-  #{
-  #  redirect = "board.hackclub.com";
-  #  dest = "https://github.com/orgs/hackclub/projects/6";
-  #}
+  {
+    redirect = "blog.hackclub.com";
+    dest = "https://hackclub.com";
+  }
+  {
+    redirect = "board.hackclub.com";
+    dest = "https://github.com/orgs/hackclub/projects/6";
+  }
   #{
   #  permRedirect = "camp-sheet.hackclub.com";
   #  dest =
