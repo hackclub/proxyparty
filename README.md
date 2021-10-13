@@ -1,7 +1,11 @@
+BEFORE SHIPPING:
+
+- catchall redirects with appropriate SSL certs for each domain
+- fix bulckcah hanging
+- set Host to the hostname of the URL we're wanting to proxy to. this will fix github pages domains that have a CNAME, like maxwofford.com
+
 todo:
 
-- catchall redirect to hackclub.com
-- verify design.hackclub.com after getting ssl working
 - bulckcah is broken
 - proxy pass maxwofford.com is broken
 
