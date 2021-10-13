@@ -57,6 +57,9 @@ let
           proxyPass = "${rule.dest}$request_uri";
           proxyWebsockets = true;
           extraConfig = ''
+            # required per https://stackoverflow.com/a/22259088
+            resolver 1.1.1.1;
+
             # required when the destination is also a TLS server with multiple hosts
             proxy_ssl_server_name on;
 
