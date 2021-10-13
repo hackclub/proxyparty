@@ -65,6 +65,7 @@ let
 
             # pass through the client's IP
             proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
           '';
         };
       };
@@ -78,6 +79,10 @@ in recursiveMerge [
 
     services.nginx = {
       enable = true;
+
+      recommendedTlsSettings = true;
+      recommendedGzipSettings = true;
+      recommendedOptimisation = true;
 
       # default virtual host to use if nothing else is found
       virtualHosts.default = {
