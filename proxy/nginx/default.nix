@@ -21,12 +21,12 @@ let
   rulesConvertedToNginxConfig = recursiveMerge (map (rule:
     if builtins.hasAttr "redirect" rule then {
       virtualHosts."${rule.redirect}" = {
-        locations."/".return = "302 ${rule.dest}/$request_uri";
+        locations."/".return = "302 ${rule.dest}$request_uri";
       };
     } else if builtins.hasAttr "proxy" rule then {
       virtualHosts."${rule.proxy}" = {
         locations."/" = {
-          proxyPass = "${rule.dest}/$request_uri";
+          proxyPass = "${rule.dest}$request_uri";
           proxyWebsockets = true;
           extraConfig = ''
             # required when the destination is also a TLS server with multiple hosts
