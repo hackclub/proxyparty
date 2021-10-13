@@ -145,10 +145,9 @@
     redirect = "hackclub.io";
     dest = "https://hackclub.com";
   }
-
   {
     redirect = "help.hackclub.com";
-    dest = "https://hackclub.atlassian.net/servicedesk/customer/";
+    dest = "https://hackclub.atlassian.net/servicedesk/customer";
   }
   {
     redirect = "idyllwild.hackclub.com";
