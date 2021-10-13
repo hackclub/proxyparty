@@ -1,8 +1,9 @@
 todo:
 
-- add entries after design.hackclub.com
 - catchall redirect to hackclub.com
 - verify design.hackclub.com after getting ssl working
+- bulckcah is broken
+- proxy pass maxwofford.com is broken
 
 testing / todo:
 
