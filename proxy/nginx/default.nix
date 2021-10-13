@@ -21,7 +21,12 @@ let
   rulesConvertedToNginxConfig = recursiveMerge (map (rule:
     if builtins.hasAttr "redirect" rule then {
       virtualHosts."${rule.redirect}" = {
-        locations."/".return = "302 ${rule.dest}$request_uri";
+        locations."/".return =
+          "302 ${rule.dest}${if rule ? "stripURI" then "" else "$request_uri"}";
+      };
+    } else if builtins.hasAttr "permRedirect" rule then {
+      virtualHosts."${rule.permRedirect}" = {
+        locations."/".return = "301 ${rule.dest}$request_uri";
       };
     } else if builtins.hasAttr "proxy" rule then {
       virtualHosts."${rule.proxy}" = {
