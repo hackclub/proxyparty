@@ -5,7 +5,16 @@ let
   acmeEmail = "team@hackclub.com";
   dnsProvider = "dnsimple";
   dnsCredentialsFile = "/var/secrets/acme_dns_credentials.env";
-  domains = [ "hackclub.com" "hackclub.io" "hackedu.us" ];
+  domains = [ "hackclub.com" "bulckcah.com" "hackclub.io" "hackedu.us" ];
+
+  # given a virtual host name, return the domain that matches
+  #
+  # ex. domainForHost 'foo.hackclub.com' -> 'hackclub.com'
+  domainForHost = with lib;
+    with builtins;
+    host:
+    findFirst (d: hasSuffix d host)
+    (abort "Could not find matching domain for ${host}") domains;
 
   # from https://stackoverflow.com/a/54505212
   recursiveMerge = with lib;
@@ -23,18 +32,27 @@ let
             last values);
     in f [ ] attrList;
 
-  rulesConvertedToNginxConfig = recursiveMerge (map (rule:
+  rulesConfig = recursiveMerge (map (rule:
     if builtins.hasAttr "redirect" rule then {
-      virtualHosts."${rule.redirect}" = {
+      services.nginx.virtualHosts."${rule.redirect}" = {
+        forceSSL = true;
+        useACMEHost = domainForHost rule.redirect;
+
         locations."/".return =
           "302 ${rule.dest}${if rule ? "stripURI" then "" else "$request_uri"}";
       };
     } else if builtins.hasAttr "permRedirect" rule then {
-      virtualHosts."${rule.permRedirect}" = {
+      services.nginx.virtualHosts."${rule.permRedirect}" = {
+        forceSSL = true;
+        useACMEHost = domainForHost rule.permRedirect;
+
         locations."/".return = "301 ${rule.dest}$request_uri";
       };
     } else if builtins.hasAttr "proxy" rule then {
-      virtualHosts."${rule.proxy}" = {
+      services.nginx.virtualHosts."${rule.proxy}" = {
+        forceSSL = true;
+        useACMEHost = domainForHost rule.proxy;
+
         locations."/" = {
           proxyPass = "${rule.dest}$request_uri";
           proxyWebsockets = true;
@@ -51,16 +69,12 @@ let
       abort "Can't find 'proxy', 'redirect', or 'permRedirect' in ${
         builtins.toJSON rule
       }") rules);
-in {
-  networking.firewall.allowedTCPPorts = [ 80 ];
+in recursiveMerge [
+  {
+    networking.firewall.allowedTCPPorts = [ 80 443 ];
 
-  services.nginx = recursiveMerge [
-    {
-      enable =
-        builtins.trace (builtins.toJSON rulesConvertedToNginxConfig) true;
-
-      # specify DNS server to use to resolve domain names
-      resolver = { addresses = [ "1.1.1.1" ]; };
+    services.nginx = {
+      enable = true;
 
       # default virtual host to use if nothing else is found
       virtualHosts.default = {
