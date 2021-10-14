@@ -6,7 +6,6 @@ BEFORE SHIPPING:
 
 todo:
 
-- bulckcah is broken
 - proxy pass maxwofford.com is broken
 
 future:
