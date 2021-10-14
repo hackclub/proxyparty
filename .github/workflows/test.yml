@@ -10,6 +10,6 @@ jobs:
       - uses: cachix/install-nix-action@v13
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      - with: mxschmitt/action-tmate@v3
+      - uses: mxschmitt/action-tmate@v3
       - run: nix-env -i morph
       - run: morph build network.nix
