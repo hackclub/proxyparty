@@ -5,7 +5,8 @@ let
   acmeEmail = "team@hackclub.com";
   dnsProvider = "dnsimple";
   dnsCredentialsFile = "/var/secrets/acme_dns_credentials.env";
-  domains = [ "hackclub.com" "bulckcah.com" "hackclub.io" "hackedu.us" ];
+  domains =
+    [ "hackclub.com" "hackclub.org" "bulckcah.com" "hackclub.io" "hackedu.us" ];
 
   # given a virtual host name, return the domain that matches
   #
