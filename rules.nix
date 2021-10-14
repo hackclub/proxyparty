@@ -201,7 +201,7 @@
   }
   
   {
-    redirect = "zfogg-temp.hackclub.com";
+    proxy = "zfogg-temp.hackclub.com";
     dest = "https://zfo.gg";
   }
 ]
