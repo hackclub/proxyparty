@@ -19,7 +19,7 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      - name: "Set known host info for proxy.servers.hackclub.com"
+        run: echo "proxy.servers.hackclub.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFkAeRX+PZlYApsNZZegjtN+fgafz8Kd85hUa93T2HYn" >> ~/.ssh/known_hosts
       - name: "Build and deploy to proxy.servers.hackclub.com"
         run: ./deploy
