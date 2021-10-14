@@ -10,5 +10,5 @@ jobs:
       - uses: cachix/install-nix-action@v13
         with:
           nix_path: nixpkgs=channel:nixos-21.05
-      - run: nix-env -i morph
+      - run: nix-env -iA morph
       - run: morph build network.nix
