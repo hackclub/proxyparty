@@ -4,9 +4,6 @@ name: "Build machine to test for syntax and configuration errors"
 
 on:
   pull_request:
-  push:
-    branches-ignore:
-      - 'main'
 
 jobs:
   test:
