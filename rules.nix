@@ -156,6 +156,11 @@
     dest = "https://hackclub.com";
   }
   {
+    redirect = "hackclub.org";
+    dest = "https://hackclub.com";
+  }
+
+  {
     redirect = "help.hackclub.com";
     dest = "https://hackclub.atlassian.net/servicedesk/customer";
   }
