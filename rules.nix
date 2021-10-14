@@ -10,10 +10,20 @@
     redirect = "admin.hackclub.com";
     dest = "https://hackclub.com/admin";
   }
+
+  {
+    proxy = "bulckcah.com";
+    dest = "https://hackclub.com";
+  }
+  {
+    proxy = "workshops.bulckcah.com";
+    dest = "https://workshops.hackclub.com";
+  }
   {
     proxy = "api.bulckcah.com";
     dest = "https://api.hackclub.com";
   }
+
   {
     redirect = "blog.hackclub.com";
     dest = "https://hackclub.com";
