@@ -85,20 +85,30 @@ in recursiveMerge [
       recommendedOptimisation = true;
 
       # subdomain catch-alls for all domains
-      virtualHosts = with builtins;
-        listToAttrs (map (domain: {
-          name = "*.${domain}";
-          value = {
-            forceSSL = true;
-            useACMEHost = domain;
+      virtualHosts = recursiveMerge [
+        (with builtins;
+          listToAttrs (map (domain: {
+            name = "*.${domain}";
+            value = {
+              forceSSL = true;
+              useACMEHost = domain;
 
-            serverName =
-              let escapedDomain = (replaceStrings [ "." ] [ "\\." ] domain);
-              in "~^(?P<subdomain>.+\\.)${escapedDomain}$";
+              serverName =
+                let escapedDomain = (replaceStrings [ "." ] [ "\\." ] domain);
+                in "~^(?P<subdomain>.+\\.)${escapedDomain}$";
 
-            locations."/".return = "302 https://hackclub.com";
+              locations."/".return = "302 https://hackclub.com";
+            };
+          }) domains))
+
+        {
+          "default" = {
+            default = true;
+
+            locations."/".root = ./public;
           };
-        }) domains);
+        }
+      ];
     };
 
     users.users.nginx.extraGroups = [ "acme" ];
