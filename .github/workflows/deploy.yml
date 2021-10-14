@@ -1,0 +1,22 @@
+name: "Deploy to proxy.servers.hackclub.com"
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout hackclub/proxy"
+        uses: actions/checkout@v2.3.4
+      - name: "Install Nix"
+        uses: cachix/install-nix-action@v13
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - name: "Install SSH key for deployment"
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: "Build and deploy to proxy.servers.hackclub.com"
+        run: ./deploy
