@@ -1,6 +1,5 @@
 BEFORE SHIPPING:
 
-- catchall redirects with appropriate SSL certs for each domain
 - fix bulckcah hanging
 - set Host to the hostname of the URL we're wanting to proxy to. this will fix github pages domains that have a CNAME, like maxwofford.com
 - automatic deploy via github actions
