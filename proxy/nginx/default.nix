@@ -84,12 +84,21 @@ in recursiveMerge [
       recommendedGzipSettings = true;
       recommendedOptimisation = true;
 
-      # default virtual host to use if nothing else is found
-      virtualHosts.default = {
-        default = true;
+      # subdomain catch-alls for all domains
+      virtualHosts = with builtins;
+        listToAttrs (map (domain: {
+          name = "*.${domain}";
+          value = {
+            forceSSL = true;
+            useACMEHost = domain;
 
-        locations."/".return = "302 https://hackclub.com";
-      };
+            serverName =
+              let escapedDomain = (replaceStrings [ "." ] [ "\\." ] domain);
+              in "~^(?P<subdomain>.+\\.)${escapedDomain}$";
+
+            locations."/".return = "302 https://hackclub.com";
+          };
+        }) domains);
     };
 
     users.users.nginx.extraGroups = [ "acme" ];
