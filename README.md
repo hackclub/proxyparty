@@ -1,7 +1,7 @@
 BEFORE SHIPPING:
 
 - set Host to the hostname of the URL we're wanting to proxy to. this will fix github pages domains that have a CNAME, like maxwofford.com
-- automatic deploy via github actions
+- automatic test and deploy via github actions
 - good readme with instructions a non-nix user can understand
 
 todo:
