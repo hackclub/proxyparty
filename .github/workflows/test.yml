@@ -1,6 +1,6 @@
 # Note: Proxy does not have a test suite, this just checks to see if the
 # deployment will build to catch any compile-time errors.
-name: "Build machine to test for syntax and configuration errors"
+name: "Check for syntax and configuration errors"
 
 on:
   pull_request:
