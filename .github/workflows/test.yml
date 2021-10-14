@@ -1,15 +1,20 @@
-name: "Test build"
+# Note: Proxy does not have a test suite, this just checks to see if the
+# deployment will build to catch any compile-time errors.
+name: "Build machine to test for syntax and configuration errors"
+
 on:
   pull_request:
   push:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
-      - uses: cachix/install-nix-action@v13
+      - name: "Checkout hacklcub/proxy"
+        uses: actions/checkout@v2.3.4
+      - name: "Install Nix"
+        uses: cachix/install-nix-action@v13
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      - uses: mxschmitt/action-tmate@v3
-      - run: nix-env -i morph
-      - run: morph build network.nix
+      - name: "Build the deployment to see if there are any syntax or configuration errors that can be caught at compile time"
+        run: nix-shell -p morph --run "morph build network.nix"
