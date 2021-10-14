@@ -199,9 +199,4 @@
     redirect = "slack.hackclub.com";
     dest = "https://hackclub.com/slack";
   }
-  
-  {
-    redirect = "testing-pull-request.hackclub.com";
-    dest = "https://github.com/hackclub/proxy";
-  }
 ]
