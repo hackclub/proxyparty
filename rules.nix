@@ -199,4 +199,9 @@
     redirect = "slack.hackclub.com";
     dest = "https://hackclub.com/slack";
   }
+  
+  {
+    redirect = "zfogg-temp.hackclub.com";
+    dest = "https://zfo.gg";
+  }
 ]
