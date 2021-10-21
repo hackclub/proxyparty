@@ -46,7 +46,7 @@ let
         useACMEHost = domainForHost rule.redirect;
 
         locations."/".return = "302 ${rule.dest}${
-            if rule ? "stripURI" then "" else "$is_args$args"
+            if rule ? "stripArgs" then "" else "$is_args$args"
           }";
       };
     } else if builtins.hasAttr "permRedirect" rule then {
@@ -55,7 +55,7 @@ let
         useACMEHost = domainForHost rule.permRedirect;
 
         locations."/".return = "302 ${rule.dest}${
-            if rule ? "stripURI" then "" else "$is_args$args"
+            if rule ? "stripArgs" then "" else "$is_args$args"
           }";
       };
     } else if builtins.hasAttr "proxy" rule then {

@@ -2,9 +2,9 @@
 # redirect = 302 redirect the traffic to the dest, passing the request_uri (the ?foobar portion of the URL) (you probably want this)
 # permRedirect = 301 redirect to the dest
 #
-# you can optionally set `stripURI` to true to not pass the request URI to dest.
-#  example without stripURI set: gh.hackclub.com/foobar?hello=there -> https://github.com/hackclub/hackclub/foobar?hello=there
-#  example with stripURI set: gh.hackclub.com/foobar -> https://github.com/hackclub/hackclub/foobar
+# you can optionally set `stripArgs` to true to not pass the request URI to dest.
+#  example without stripArgs set: gh.hackclub.com/foobar?hello=there -> https://github.com/hackclub/hackclub/foobar?hello=there
+#  example with stripArgs set: gh.hackclub.com/foobar -> https://github.com/hackclub/hackclub/foobar
 [
   {
     redirect = "admin.hackclub.com";
@@ -124,7 +124,7 @@
   {
     redirect = "gh.hackclub.com";
     dest = "https://github.com/hackclub/hackclub";
-    stripURI = true;
+    stripArgs = true;
   }
   {
     redirect = "guide.hackclub.com";
