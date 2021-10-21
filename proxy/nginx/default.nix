@@ -45,16 +45,18 @@ let
         forceSSL = true;
         useACMEHost = domainForHost rule.redirect;
 
-        locations."/".return =
-          "302 ${rule.dest}${if rule ? "stripURI" then "" else "$request_uri"}";
+        locations."/".return = "302 ${rule.dest}${
+            if rule ? "stripURI" then "" else "$is_args$args"
+          }";
       };
     } else if builtins.hasAttr "permRedirect" rule then {
       services.nginx.virtualHosts."${rule.permRedirect}" = {
         forceSSL = true;
         useACMEHost = domainForHost rule.permRedirect;
 
-        locations."/".return =
-          "302 ${rule.dest}${if rule ? "stripURI" then "" else "$request_uri"}";
+        locations."/".return = "302 ${rule.dest}${
+            if rule ? "stripURI" then "" else "$is_args$args"
+          }";
       };
     } else if builtins.hasAttr "proxy" rule then {
       services.nginx.virtualHosts."${rule.proxy}" = {
