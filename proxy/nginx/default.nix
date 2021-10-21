@@ -53,7 +53,8 @@ let
         forceSSL = true;
         useACMEHost = domainForHost rule.permRedirect;
 
-        locations."/".return = "301 ${rule.dest}$request_uri";
+        locations."/".return =
+          "302 ${rule.dest}${if rule ? "stripURI" then "" else "$request_uri"}";
       };
     } else if builtins.hasAttr "proxy" rule then {
       services.nginx.virtualHosts."${rule.proxy}" = {
@@ -63,6 +64,7 @@ let
         locations."/" = {
           proxyPass = "${rule.dest}$request_uri";
           proxyWebsockets = true;
+
           extraConfig = ''
             # required per https://stackoverflow.com/a/22259088
             resolver 1.1.1.1;
