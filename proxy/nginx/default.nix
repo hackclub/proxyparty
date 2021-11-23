@@ -5,6 +5,7 @@ let
   acmeEmail = "team@hackclub.com";
   dnsProvider = "dnsimple";
   dnsCredentialsFile = "/var/secrets/acme_dns_credentials.env";
+  proxyDomain = "proxyparty.hackclub.com"; # URL of this server
   domains = [
     "hackclub.com"
     "hack.af"
@@ -109,7 +110,7 @@ in recursiveMerge [
           }) domains))
 
         {
-          "default" = {
+          "${proxyDomain}" = {
             default = true;
 
             locations."/".root = ./public;
