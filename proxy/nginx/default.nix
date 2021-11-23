@@ -73,10 +73,6 @@ let
 
             # required when the destination is also a TLS server with multiple hosts
             proxy_ssl_server_name on;
-
-            # pass through the client's IP
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $remote_addr;
           '';
         };
       };
