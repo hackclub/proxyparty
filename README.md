@@ -14,9 +14,7 @@ Here's how it works:
 
 <img src="https://cloud-e428gpdi3-hack-club-bot.vercel.app/0img_0099.jpg" width="100" alt="Orpheus at a proxy party admissions booth" align="left" />
 
-And that's it! Once your pull request is merged, a new nginx configuration with your changes is automatically generated, and the server at `proxyparty.hackclub.com` is automatically updated using GitHub Actions.
-
-It’ll even get an SSL certificate if one doesn’t already exist for the domain, and automatically renew any SSL certificates when it’s time.
+And that's it! Once your pull request is merged, a new nginx configuration with your changes is automatically generated, and the server at `proxyparty.hackclub.com` is automatically updated using GitHub Actions. It’ll even get an SSL certificate if one doesn’t already exist for the domain, and automatically renew any SSL certificates when it’s time.
 
 It's almost like magic, thanks to the power of NixOS!
 
