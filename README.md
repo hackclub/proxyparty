@@ -12,7 +12,7 @@ Here's how it works:
 2. Make sure the domain you want to redirect from / proxy to points to `proxyparty.hackclub.com` (most Hack Club domains have a subdomain wildcard that points to this server)
 3. Submit a pull request with your changes
 
-<img src="https://cloud-e428gpdi3-hack-club-bot.vercel.app/0img_0099.jpg" width="100" alt="Orpheus at a proxy party admissions booth" align="left" />
+<img src="https://cloud-e428gpdi3-hack-club-bot.vercel.app/0img_0099.jpg" width="90" alt="Orpheus at a proxy party admissions booth" align="left" />
 
 And that's it! Once your pull request is merged, a new nginx configuration with your changes is automatically generated, and the server at `proxyparty.hackclub.com` is automatically updated using GitHub Actions.
 
