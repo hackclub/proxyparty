@@ -15,6 +15,8 @@ jobs:
         uses: cachix/install-nix-action@v13
         with:
           nix_path: nixpkgs=channel:nixos-unstable
+      - name: "Enable nix-command experimental feature (needed for Morph)"
+        run: mkdir -p ~/.config/nix && echo "experimental-features = nix-command" >> ~/.config/nix/nix.conf
       - name: "Install SSH key for deployment"
         uses: webfactory/ssh-agent@v0.5.3
         with:
