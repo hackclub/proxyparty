@@ -9,7 +9,7 @@ This is Hack Club's proxy server, which we rely on to make sure our old links ke
 Here's how it works:
 
 1. Open up `rules.nix` and add a new rule to either redirect, permanently redirect, or proxy one URL to another
-2. Make sure the domain you want to redirect from / proxy to points to `proxyparty.hackclub.com` (most Hack Club domains have a subdomain wildcard that points to this server)
+2. Make sure the domain you want to redirect from / proxy to points to `proxyparty.hackclub.com` (most Hack Club domains have a subdomain wildcard that points to this server, see [`hackclub/dns`](https://github.com/hackclub/dns))
 3. Submit a pull request with your changes
 
 <img src="https://cloud-e428gpdi3-hack-club-bot.vercel.app/0img_0099.jpg" width="90" alt="Orpheus at a proxy party admissions booth" align="left" />
