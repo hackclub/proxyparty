@@ -23,10 +23,6 @@
     proxy = "api.bulckcah.com";
     dest = "https://api.hackclub.com";
   }
-  {
-    proxy = "bank.bulckcah.com";
-    dest = "https://bank.hackclub.com";
-  }
 
   {
     redirect = "blog.hackclub.com";
