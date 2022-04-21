@@ -10,6 +10,11 @@
     redirect = "admin.hackclub.com";
     dest = "https://hackclub.com/admin";
   }
+  
+  {
+    redirect = "floppy.hackclub.com";
+    dest = "http://dinobox.local:3000";
+  }
 
   {
     proxy = "bulckcah.com";
