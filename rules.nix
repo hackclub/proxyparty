@@ -204,4 +204,9 @@
     redirect = "slack.hackclub.com";
     dest = "https://hackclub.com/slack";
   }
+  
+  {
+    redirect = "sinerider.hackclub.com";
+    dest = "https://sinerider.com";
+  }
 ]
