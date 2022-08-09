@@ -206,7 +206,7 @@
   }
   
   {
-    redirect = "sinerider.hackclub.com"
-    dest = "https://sinerider.com"
+    redirect = "sinerider.hackclub.com";
+    dest = "https://sinerider.com";
   }
 ]
