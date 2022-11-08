@@ -12,6 +12,11 @@
   }
   
   {
+    redirect = "sprig.hackclub.org";
+    dest = "https://hack.af/sprig-for-hackers";
+  }
+  
+  {
     redirect = "floppy.hackclub.com";
     dest = "http://dinobox.local:3000";
   }
