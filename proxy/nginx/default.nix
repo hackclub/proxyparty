@@ -13,7 +13,7 @@ let
     "bulckcah.com"
     "hackclub.io"
     "hackedu.us"
-    "hackclub.us"
+    # "hackclub.us"
   ];
 
   # given a virtual host name, return the domain that matches
