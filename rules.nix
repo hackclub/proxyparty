@@ -33,7 +33,14 @@
     proxy = "api.bulckcah.com";
     dest = "https://api.hackclub.com";
   }
-
+  {
+    proxy = "toolbox.bulckcah.com";
+    dest = "https://toolbox.hackclub.com";
+  }
+  {
+    proxy = "school-toolbox.bulckcah.com";
+    dest = "https://school-toolbox.hackclub.com/";
+  }
   {
     redirect = "blog.hackclub.com";
     dest = "https://hackclub.com";
