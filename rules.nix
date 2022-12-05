@@ -39,7 +39,7 @@
   }
   {
     proxy = "school-toolbox.bulckcah.com";
-    dest = "https://school-toolbox.hackclub.com/";
+    dest = "https://school-toolbox.hackclub.com";
   }
   {
     redirect = "blog.hackclub.com";
