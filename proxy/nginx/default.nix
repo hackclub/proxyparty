@@ -13,6 +13,8 @@ let
     "bulckcah.com"
     "hackclub.io"
     "hackedu.us"
+    "scrapbook.dev"
+    "scrap.dev"
     # "hackclub.us"
   ];
 
