@@ -12,6 +12,16 @@
   }
   
   {
+    redirect = "scrap.dev";
+    dest = "https://hackclub.com";
+  }
+  
+  {
+    redirect = "scrapbook.dev";
+    dest = "https://hackclub.com";
+  }
+  
+  {
     redirect = "sprig.hackclub.org";
     dest = "https://hack.af/sprig-for-hackers";
   }
