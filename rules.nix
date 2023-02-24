@@ -20,6 +20,11 @@
     redirect = "scrapbook.dev";
     dest = "https://hackclub.com";
   }
+
+  {
+    redirect = "hackclub.money";
+    dest = "https://bank.hackclub.com";
+  }
   
   {
     redirect = "sprig.hackclub.org";

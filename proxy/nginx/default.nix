@@ -15,6 +15,7 @@ let
     "hackedu.us"
     "scrapbook.dev"
     "scrap.dev"
+    "hackclub.money"
     # "hackclub.us"
   ];
 
