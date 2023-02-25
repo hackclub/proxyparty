@@ -236,4 +236,9 @@
     redirect = "sinerider.hackclub.com";
     dest = "https://sinerider.com";
   }
+
+  {
+    redirect = "dino.icu";
+    dest = "https://meta.dino.icu";
+  }
 ]
