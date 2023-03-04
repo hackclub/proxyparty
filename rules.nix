@@ -12,13 +12,13 @@
   }
   
   {
-    redirect = "scrap.dev";
-    dest = "https://hackclub.com";
+    proxy = "scrap.dev";
+    dest = "https://scrapbook.hackclub.com";
   }
   
   {
-    redirect = "scrapbook.dev";
-    dest = "https://hackclub.com";
+    proxy = "scrapbook.dev";
+    dest = "https://scrapbook.hackclub.com";
   }
 
   {
