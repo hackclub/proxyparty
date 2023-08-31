@@ -23,7 +23,7 @@
 
   {
     redirect = "hackclub.money";
-    dest = "https://bank.hackclub.com";
+    dest = "https://hcb.hackclub.com";
   }
   
   {
