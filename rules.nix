@@ -241,4 +241,9 @@
     redirect = "dino.icu";
     dest = "https://meta.dino.icu";
   }
+
+  {
+    redirect = "pizza.hackclub.com";
+    dest = "https://hackclub.com/pizza";
+  }
 ]
