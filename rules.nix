@@ -246,4 +246,9 @@
     redirect = "pizza.hackclub.com";
     dest = "https://hackclub.com/pizza";
   }
+
+  {
+    redirect = "bin.hackclub.com";
+    dest = "https://hackclub.com/bin";
+  }
 ]
