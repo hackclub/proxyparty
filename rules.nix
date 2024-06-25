@@ -61,6 +61,10 @@
     dest = "https://blot.hackclub.com";
   }
   {
+    proxy = "sprig.bulckcah.com";
+    dest = "https://sprig.hackclub.com";
+  }
+  {
     redirect = "blog.hackclub.com";
     dest = "https://hackclub.com";
   }
