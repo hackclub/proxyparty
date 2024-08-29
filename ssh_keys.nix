@@ -9,6 +9,10 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII5bJhhyjxGBe/3cU7NzbLBuX6hFn+nkgx3HD/nNDf4B max@rubber"
   ];
 
+  cheru = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzyhw0uZVE2mv1fdIcQH/91HkYlCLgSwvx34Ld7yn1t"
+  ]
+
   github-actions = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4/L67pKMn7tk24rjTUOSVW7Zk70+bXS7zlaV956pSU proxy@github-actions"
   ];
