@@ -267,4 +267,9 @@
     redirect = "bin.hackclub.com";
     dest = "https://hackclub.com/bin";
   }
+
+  {
+    redirect = "high-seas.hackclub.com";
+    dest = "https://highseas.hackclub.com";
+  }
 ]
