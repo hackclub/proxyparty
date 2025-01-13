@@ -272,4 +272,9 @@
     redirect = "high-seas.hackclub.com";
     dest = "https://highseas.hackclub.com";
   }
+
+  {
+    redirect = "directory.hackclub.com";
+    dest = "https://hackclub.com/maps";
+  }
 ]
