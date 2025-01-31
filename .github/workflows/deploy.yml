@@ -22,6 +22,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: "Set known host info for proxy.servers.hackclub.com"
-        run: echo "proxy.servers.hackclub.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJCVGUtTTJIdbzFmfIh6d1zrvkk7Miy5PKH/nB3YbVo7" >> ~/.ssh/known_hosts
+        run: echo "proxy.servers.hackclub.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ0IXOb9Yq8W03JX2AFe1j07LVOMNdcXXP9yCkmFvvvK" >> ~/.ssh/known_hosts
       - name: "Build and deploy to proxy.servers.hackclub.com"
         run: ./deploy
